@@ -1,0 +1,335 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="description" content="دليلك الطبي - منصة عراقية وطنية لربط المرضى بأطباء الثقة المعتمدين في جميع المحافظات">
+    <meta name="keywords" content="أطباء العراق، النجف، بغداد، طبيب، عيادة، حجز موعد، صحة">
+    <meta name="theme-color" content="#003366">
+    
+    <!-- Security Headers -->
+    <meta http-equiv="X-Content-Type-Options" content="nosniff">
+    <meta http-equiv="X-Frame-Options" content="DENY">
+    <meta http-equiv="X-XSS-Protection" content="1; mode=block">
+    <meta name="referrer" content="strict-origin-when-cross-origin">
+    
+    <title>دليلك الطبي | منصة أطباء الثقة في العراق</title>
+    
+    <!-- خطوط Google الاحترافية -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@300;400;500;700;900&family=Cairo:wght@300;400;600;800&display=swap" rel="stylesheet">
+    
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <!-- شاشة الترحيب -->
+    <div id="splashScreen" class="splash-screen">
+        <div class="splash-container">
+            <div class="pulse-icon">
+                <svg viewBox="0 0 100 100" class="medical-icon">
+                    <circle cx="50" cy="50" r="45" fill="none" stroke="currentColor" stroke-width="2" opacity="0.3"/>
+                    <circle cx="50" cy="50" r="35" fill="none" stroke="currentColor" stroke-width="1" opacity="0.2"/>
+                    <path d="M50 20 L50 80 M20 50 L80 50" stroke="currentColor" stroke-width="8" stroke-linecap="round"/>
+                </svg>
+            </div>
+            <h1 class="splash-title fade-in-text">دليلك الطبي</h1>
+            <p class="splash-subtitle fade-in-sub">منصة عراقية وطنية للرعاية الصحية</p>
+            <div class="modern-loader"><div class="loader-bar"></div></div>
+        </div>
+    </div>
+
+    <!-- شريط التنقل -->
+    <nav class="glass-nav" id="mainNav">
+        <div class="container nav-flex">
+            <div class="logo-area">
+                <span class="plus-symbol">✚</span>
+                <span class="logo-text">دليلك الطبي</span>
+                <span class="iraq-badge">🇮🇶</span>
+            </div>
+            <ul class="nav-links">
+                <li class="nav-item active"><span class="nav-icon">🏠</span><span>الرئيسية</span></li>
+                <li class="nav-item" id="aboutTrigger"><span class="nav-icon">ℹ️</span><span>من نحن</span></li>
+                <li class="nav-item" id="helpTrigger"><span class="nav-icon">💬</span><span>المساعدة</span></li>
+            </ul>
+            <button class="mobile-menu-toggle" id="mobileMenuToggle" aria-label="القائمة">
+                <span></span><span></span><span></span>
+            </button>
+        </div>
+    </nav>
+
+    <!-- القسم الرئيسي -->
+    <header class="main-header">
+        <div class="hero-overlay"></div>
+        <div class="hero-content container">
+            <div class="hero-badge animate-slide-down">خدمة وطنية تشمل جميع محافظات العراق 🇮🇶</div>
+            <h1 class="hero-title animate-fade-in">صحتك تستحق الأفضل</h1>
+            <p class="hero-desc animate-fade-in-delay">دليل الأطباء العراقيين المعتمد بناءً على تقييمات المرضى الحقيقية والموثوقة</p>
+            
+            <div class="search-card animate-scale-in">
+                <div class="search-header">
+                    <h3>ابحث عن طبيبك المثالي</h3>
+                    <p>اختر المحافظة والتخصص للبدء</p>
+                </div>
+                
+                <div class="search-inputs">
+                    <div class="input-group">
+                        <label for="citySelect"><span class="label-icon">📍</span>اختر المحافظة</label>
+                        <select id="citySelect" class="styled-select">
+                            <option value="النجف">النجف الأشرف</option>
+                            <option value="بغداد">بغداد</option>
+                            <option value="كربلاء">كربلاء المقدسة</option>
+                            <option value="البصرة">البصرة</option>
+                            <option value="بابل">بابل</option>
+                            <option value="أربيل">أربيل</option>
+                            <option value="نينوى">نينوى (الموصل)</option>
+                            <option value="ذي قار">ذي قار (الناصرية)</option>
+                            <option value="الأنبار">الأنبار</option>
+                            <option value="ميسان">ميسان (العمارة)</option>
+                            <option value="المثنى">المثنى (السماوة)</option>
+                            <option value="القادسية">القادسية (الديوانية)</option>
+                            <option value="واسط">واسط (الكوت)</option>
+                            <option value="ديالى">ديالى (بعقوبة)</option>
+                            <option value="صلاح الدين">صلاح الدين (تكريت)</option>
+                            <option value="كركوك">كركوك</option>
+                            <option value="دهوك">دهوك</option>
+                            <option value="السليمانية">السليمانية</option>
+                        </select>
+                    </div>
+                    
+                    <div class="input-group search-input-group">
+                        <label for="searchInput"><span class="label-icon">🔍</span>ابحث عن تخصص أو طبيب</label>
+                        <input type="text" id="searchInput" placeholder="مثلاً: قلبية، عيون، جراحة..." maxlength="100">
+                        <button class="clear-search" id="clearSearch" style="display:none;">✕</button>
+                    </div>
+                </div>
+                
+                <div class="search-stats">
+                    <div class="stat-item">
+                        <span class="stat-number" id="totalDoctors">5</span>
+                        <span class="stat-label">طبيب معتمد</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-number">18</span>
+                        <span class="stat-label">محافظة عراقية</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-number" id="totalReviews">0</span>
+                        <span class="stat-label">تقييم حقيقي</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="floating-shapes">
+            <div class="shape shape-1"></div>
+            <div class="shape shape-2"></div>
+            <div class="shape shape-3"></div>
+        </div>
+    </header>
+
+    <!-- قسم الأطباء -->
+    <section class="content-section container">
+        <div class="section-header animate-fade-in-up">
+            <div class="section-badge">الأطباء المعتمدون</div>
+            <h2 id="listTitle" class="section-heading">أطباء الثقة في النجف الأشرف</h2>
+            <div class="accent-line"></div>
+            <p class="section-desc">اختيارنا مبني على معايير صارمة وتقييمات حقيقية من المرضى</p>
+        </div>
+        
+        <div class="quick-filters">
+            <button class="filter-btn active" data-filter="all">الكل</button>
+            <button class="filter-btn" data-filter="القلبية">القلبية</button>
+            <button class="filter-btn" data-filter="العيون">العيون</button>
+            <button class="filter-btn" data-filter="العظام">العظام</button>
+            <button class="filter-btn" data-filter="المسالك">المسالك</button>
+        </div>
+        
+        <div id="doctorsGrid" class="doctors-grid"></div>
+        
+        <!-- رسالة قريباً -->
+        <div id="comingSoonMessage" class="coming-soon-message" style="display:none;">
+            <div class="hourglass-animation">
+                <svg viewBox="0 0 100 100" class="hourglass">
+                    <path d="M30 10 L70 10 L70 20 L50 50 L70 80 L70 90 L30 90 L30 80 L50 50 L30 20 Z" 
+                          fill="none" stroke="currentColor" stroke-width="2"/>
+                    <circle class="sand-top" cx="50" cy="25" r="12" fill="currentColor" opacity="0.3"/>
+                    <circle class="sand-bottom" cx="50" cy="75" r="8" fill="currentColor" opacity="0.5"/>
+                </svg>
+            </div>
+            <h3>قريباً في محافظتكم...</h3>
+            <p>ستتوفر خدمة دليلك الطبي قريباً في <strong id="selectedProvince"></strong></p>
+            <p class="sub-message">نحن نعمل على اختيار أفضل الأطباء لضمان جودة الخدمة لكم</p>
+            <div class="progress-dots">
+                <span class="dot"></span>
+                <span class="dot"></span>
+                <span class="dot"></span>
+            </div>
+        </div>
+        
+        <div id="noResults" class="no-results" style="display:none;">
+            <div class="no-results-icon">🔍</div>
+            <h3>لم نجد نتائج مطابقة</h3>
+            <p>جرّب البحث بمصطلحات أخرى</p>
+        </div>
+    </section>
+
+    <!-- قسم المميزات -->
+    <section class="features-section">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-heading">لماذا دليلك الطبي؟</h2>
+                <div class="accent-line"></div>
+            </div>
+            <div class="features-grid">
+                <div class="feature-card"><div class="feature-icon">🇮🇶</div><h3>تغطية وطنية</h3><p>خدمة شاملة تغطي جميع محافظات العراق</p></div>
+                <div class="feature-card"><div class="feature-icon">✅</div><h3>أطباء معتمدون</h3><p>خضعوا لعملية فحص وتدقيق صارمة</p></div>
+                <div class="feature-card"><div class="feature-icon">⭐</div><h3>تقييمات حقيقية</h3><p>آراء من مرضى سابقين دون تزييف</p></div>
+                <div class="feature-card"><div class="feature-icon">⚡</div><h3>حجز فوري</h3><p>احجز موعدك عبر واتساب مباشرة</p></div>
+                <div class="feature-card"><div class="feature-icon">🔒</div><h3>خصوصية وأمان</h3><p>نحمي بياناتك بأعلى معايير الأمان</p></div>
+                <div class="feature-card"><div class="feature-icon">💬</div><h3>دعم فني متواصل</h3><p>فريقنا جاهز عبر التليجرام</p></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- مودال من نحن -->
+    <div id="aboutModal" class="custom-modal">
+        <div class="modal-backdrop" onclick="toggleAbout()"></div>
+        <div class="modal-wrapper">
+            <button class="modal-close" onclick="toggleAbout()"><span>✕</span></button>
+            <div class="modal-content">
+                <div class="modal-header">
+                    <div class="modal-logo">
+                        <svg viewBox="0 0 100 100" class="modal-icon">
+                            <circle cx="50" cy="50" r="45" fill="none" stroke="currentColor" stroke-width="2"/>
+                            <path d="M50 20 L50 80 M20 50 L80 50" stroke="currentColor" stroke-width="8" stroke-linecap="round"/>
+                        </svg>
+                    </div>
+                    <h2>قصة "دليلك الطبي"</h2>
+                    <p class="modal-subtitle">رحلة من قلب المعاناة إلى الأمل</p>
+                </div>
+                <div class="modal-body">
+                    <div class="timeline">
+                        <div class="timeline-item" data-step="1">
+                            <div class="timeline-marker"><div class="timeline-icon">💔</div></div>
+                            <div class="timeline-content">
+                                <h3>البداية: من قلب المعاناة</h3>
+                                <p>بدأنا من قلب المعاناة في العراق، عندما يتيه المريض بين العيادات بحثاً عن طبيب الثقة. رأينا الحيرة في عيون العائلات، والخوف من اتخاذ القرار الخطأ. من هنا، ولدت الفكرة.</p>
+                            </div>
+                        </div>
+                        <div class="timeline-item" data-step="2">
+                            <div class="timeline-marker"><div class="timeline-icon">💡</div></div>
+                            <div class="timeline-content">
+                                <h3>الحل: منصة الثقة</h3>
+                                <p>قررنا بناء منصة شفافة تجمع أفضل الأطباء مع نظام تقييمات حقيقي. لا تلاعب، لا تزييف، فقط آراء صادقة تساعدك في اتخاذ القرار الصحيح.</p>
+                            </div>
+                        </div>
+                        <div class="timeline-item" data-step="3">
+                            <div class="timeline-marker"><div class="timeline-icon">🔍</div></div>
+                            <div class="timeline-content">
+                                <h3>المنهجية: الجودة قبل الكمية</h3>
+                                <p>نعتمد نظام فلترة صارم - لا يُدرج أي طبيب إلا بعد التحقق من كفاءته. فريقنا يعمل ميدانياً لجمع التقييمات الحقيقية.</p>
+                            </div>
+                        </div>
+                        <div class="timeline-item" data-step="4">
+                            <div class="timeline-marker"><div class="timeline-icon">🇮🇶</div></div>
+                            <div class="timeline-content">
+                                <h3>التوسع: من النجف إلى كل العراق</h3>
+                                <p>بدأنا من النجف، والآن نتوسع لنغطي جميع المحافظات. هدفنا أن يكون لكل بيت عراقي وصول سهل لأفضل الكفاءات الطبية.</p>
+                            </div>
+                        </div>
+                        <div class="timeline-item" data-step="5">
+                            <div class="timeline-marker"><div class="timeline-icon">🤝</div></div>
+                            <div class="timeline-content">
+                                <h3>وعدنا: التحديث المستمر</h3>
+                                <p>نلتزم بالتطوير الدائم. المصداقية هي البوصلة، ورضاكم هو الهدف الأول والأخير.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <div class="contact-info">
+                            <h4>نحن هنا للاستماع إليكم</h4>
+                            <p>هل لديك اقتراح أو استفسار؟</p>
+                            <a href="https://t.me/IraqiMedicalGuide" class="contact-btn telegram-btn" target="_blank" rel="noopener noreferrer">
+                                <span>✈️</span>تواصل معنا عبر التليجرام
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- مودال المساعدة -->
+    <div id="helpModal" class="custom-modal">
+        <div class="modal-backdrop" onclick="toggleHelp()"></div>
+        <div class="modal-wrapper help-modal">
+            <button class="modal-close" onclick="toggleHelp()"><span>✕</span></button>
+            <div class="modal-content">
+                <div class="modal-header">
+                    <div class="modal-logo"><div style="font-size:3rem;">💬</div></div>
+                    <h2>كيف يمكننا مساعدتك؟</h2>
+                    <p class="modal-subtitle">نحن هنا للإجابة على جميع استفساراتك</p>
+                </div>
+                <div class="modal-body">
+                    <div class="help-section">
+                        <h3>🔍 كيف أبحث عن طبيب؟</h3>
+                        <p>اختر محافظتك، ثم اكتب التخصص أو اسم الطبيب. يمكنك استخدام الفلاتر السريعة.</p>
+                    </div>
+                    <div class="help-section">
+                        <h3>📱 كيف أحجز موعد؟</h3>
+                        <p>اضغط زر "حجز موعد عبر واتساب" في بطاقة الطبيب.</p>
+                    </div>
+                    <div class="help-section">
+                        <h3>⭐ هل التقييمات حقيقية؟</h3>
+                        <p>نعم، جميع التقييمات من مرضى حقيقيين. نراجعها بانتظام.</p>
+                    </div>
+                    <div class="help-contact">
+                        <h3>لم تجد إجابة لسؤالك؟</h3>
+                        <a href="https://t.me/IraqiMedicalGuide" class="contact-btn telegram-btn" target="_blank" rel="noopener noreferrer">
+                            <span>✈️</span>الدعم الفني
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- التذييل -->
+    <footer class="main-footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <div class="footer-logo">
+                        <span class="plus-symbol">✚</span>
+                        <span>دليلك الطبي</span>
+                    </div>
+                    <p>منصتك الوطنية الموثوقة في جميع محافظات العراق 🇮🇶</p>
+                </div>
+                <div class="footer-section">
+                    <h4>روابط سريعة</h4>
+                    <ul>
+                        <li><a href="#home">الرئيسية</a></li>
+                        <li><a href="#" onclick="toggleAbout()">من نحن</a></li>
+                        <li><a href="#" onclick="toggleHelp()">المساعدة</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>تواصل معنا</h4>
+                    <p>للدعم الفني:</p>
+                    <a href="https://t.me/IraqiMedicalGuide" class="telegram-link" target="_blank" rel="noopener noreferrer">
+                        <span class="telegram-icon">✈️</span>@IraqiMedicalGuide
+                    </a>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>جميع الحقوق محفوظة &copy; 2026 منصة دليلك الطبي</p>
+                <p class="footer-note">تم التطوير بـ ❤️ من أجل العراق</p>
+            </div>
+        </div>
+    </footer>
+
+    <button id="scrollToTop" class="scroll-to-top"><span>↑</span></button>
+    <script src="script.js"></script>
+</body>
+</html>
