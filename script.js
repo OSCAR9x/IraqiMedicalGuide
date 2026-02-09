@@ -17,19 +17,16 @@
 // 1. وظائف الحماية الأمنية (Security Functions)
 // ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 
-/**
- * تنظيف النصوص من XSS و HTML Injection
- * يزيل جميع علامات HTML والسكريبتات الخطرة
- */
+
 const sanitizeInput = (input) => {
     if (typeof input !== 'string') return '';
     
-    // إنشاء عنصر مؤقت لتنظيف HTML
+    
     const temp = document.createElement('div');
     temp.textContent = input;
     let cleaned = temp.innerHTML;
     
-    // إزالة المحارف الخطرة
+    
     cleaned = cleaned
         .replace(/[<>]/g, '') // إزالة < و >
         .replace(/javascript:/gi, '') // إزالة javascript:
@@ -41,19 +38,14 @@ const sanitizeInput = (input) => {
     return cleaned.trim();
 };
 
-/**
- * التحقق من صحة النص
- * يضمن أن النص ضمن الحدود المقبولة
- */
+
 const validateText = (text, minLength = 1, maxLength = 200) => {
     if (!text || typeof text !== 'string') return false;
     const cleaned = sanitizeInput(text);
     return cleaned.length >= minLength && cleaned.length <= maxLength;
 };
 
-/**
- * إنشاء عنصر HTML آمن
- */
+
 const createSafeElement = (tag, textContent = '', className = '') => {
     const element = document.createElement(tag);
     if (textContent) element.textContent = textContent;
